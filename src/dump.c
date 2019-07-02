@@ -49,7 +49,3 @@ void dump(dom_node_t *nodeProc, int nLevel)
         iterator = iterator->nextSibling;
     }
 }
-
-#define BUFF 64
-#define ARG 8
-
