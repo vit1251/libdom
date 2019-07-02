@@ -1,4 +1,10 @@
-libdom
-======
+# libdom
 
-libdom is C version of DOM api to make dom based system
+libdom is C implementation DOM API
+
+# Compile / installation
+
+    $ meson builddir
+    $ ninja -C builddir
+    $ ninja -C builddir test
+    $ ninja -C builddir install
