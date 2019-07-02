@@ -1,11 +1,7 @@
-#include <stdio.h>
 
-#include "dom.h"
-#include "error.h"
+#include "common.h"
 
-#include "util.h"
-
-struct node *insertAfter(struct node *nodeNew, struct node *nodeRef)
+dom_node_t *insertAfter(dom_node_t *nodeNew, dom_node_t *nodeRef)
 {
     if (nodeNew == NULL)
 	return NULL;
@@ -13,8 +9,8 @@ struct node *insertAfter(struct node *nodeNew, struct node *nodeRef)
     if (nodeRef == NULL)
 	return NULL;
 
-    struct node *parentNode = nodeRef->parentNode;
-    struct node *nodeNext = nodeRef->nextSibling;
+    dom_node_t *parentNode = nodeRef->parentNode;
+    dom_node_t *nodeNext = nodeRef->nextSibling;
 
     if (nodeNext != NULL)
 	insertBefore(nodeNew, nodeRef); else
@@ -23,7 +19,7 @@ struct node *insertAfter(struct node *nodeNew, struct node *nodeRef)
     return NULL;
 }
 
-struct node *getFirstChild(struct node *nodeRoot)
+dom_node_t *getFirstChild(dom_node_t *nodeRoot)
 {
     if (nodeRoot == NULL)
 	return NULL;
@@ -31,7 +27,7 @@ struct node *getFirstChild(struct node *nodeRoot)
     return nodeRoot->firstChild;
 }
 
-struct node *getLastChild(struct node *nodeRoot)
+dom_node_t *getLastChild(dom_node_t *nodeRoot)
 {
     if (nodeRoot == NULL)
 	return NULL;
@@ -39,7 +35,7 @@ struct node *getLastChild(struct node *nodeRoot)
     return nodeRoot->lastChild;
 }
 
-struct node *getNextSibling(struct node *nodeSibling)
+dom_node_t *getNextSibling(dom_node_t *nodeSibling)
 {
     if (nodeSibling == NULL)
 	return NULL;
@@ -47,7 +43,7 @@ struct node *getNextSibling(struct node *nodeSibling)
     return nodeSibling->nextSibling;
 }
 
-char *getNodeName(struct node *node)
+char *getNodeName(dom_node_t *node)
 {
     if (node == NULL)
 	return NULL;
@@ -55,7 +51,7 @@ char *getNodeName(struct node *node)
     return node->nodeName;
 }
 
-struct node *getParentNode(struct node *nodeChild)
+dom_node_t *getParentNode(dom_node_t *nodeChild)
 {
     if (nodeChild == NULL)
         return NULL;
@@ -63,7 +59,7 @@ struct node *getParentNode(struct node *nodeChild)
     return nodeChild->parentNode;
 }
 
-struct node *getPreviousSibling(struct node *nodeSibling)
+dom_node_t *getPreviousSibling(dom_node_t *nodeSibling)
 {
     if (nodeSibling == NULL)
         return NULL;
@@ -71,7 +67,7 @@ struct node *getPreviousSibling(struct node *nodeSibling)
     return nodeSibling->previousSibling;
 }
 
-void setNodeValue(struct node *nodeRoot, char *nodeName)
+void setNodeValue(dom_node_t *nodeRoot, char *nodeName)
 {
     if (nodeRoot == NULL)
         return;

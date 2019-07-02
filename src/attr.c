@@ -1,9 +1,5 @@
-#include <stdio.h>
 
-#include "dom.h"
-#include "error.h"
-
-#include "attr.h"
+#include "common.h"
 
 int getLength(void *attributes)
 {
@@ -22,7 +18,7 @@ int getLength(void *attributes)
     return cnt;
 }
 
-int setAttribute(struct node *node, char *attrName, char *attrValue)
+int setAttribute(dom_node_t *node, char *attrName, char *attrValue)
 {
     struct attr *attr = NULL;
     void *temp=NULL;
@@ -50,7 +46,7 @@ int setAttribute(struct node *node, char *attrName, char *attrValue)
     attr->value = NULL;
 }
 
-char *getAttribute(struct node *node, char *attrName)
+char *getAttribute(dom_node_t *node, char *attrName)
 {
     struct attr *attr = NULL;
 
